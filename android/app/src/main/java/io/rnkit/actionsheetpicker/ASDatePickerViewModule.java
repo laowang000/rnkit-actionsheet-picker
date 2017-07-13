@@ -109,6 +109,10 @@ public class ASDatePickerViewModule extends ReactContextBaseJavaModule implement
                             format = new SimpleDateFormat("HH:mm:ss", Locale.CHINA);
                         } else if (datePickerMode.equals("dateTime")) {
                             format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+                        }else if(datePickerMode.equals("yearMonth")){
+                            format = new SimpleDateFormat("yyyy-MM",Local.CHINA);
+                        }else if(datePickerMode.equals("hourSecond")){
+                            format = new SimpleDateFormat("HH:mm",Locale.CHINA);
                         }
 
                         format.setTimeZone(TimeZone.getTimeZone("GMT+08"));
@@ -165,6 +169,10 @@ public class ASDatePickerViewModule extends ReactContextBaseJavaModule implement
             return new boolean[]{true,true,true,false,false,false};
         }else if (type.equals("datetime")) {
             return new boolean[]{true,true,true,true,true,true};
+        }else if(datePickerMode.equals("yearMonth")){
+            return new boolean[]{true,true,false,false,false,false};
+        }else if(datePickerMode.equals("hourSecond")){
+            return new boolean[]{false,false,false,true,true,false};
         }
         return new boolean[]{true,true,true,true,true,true};
     }
